@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="app"></div>
+
+
+    <script>
+        const vm = Vue.createApp({
+          data() {
+            return {
+              counter: 0,
+              evt: "submit"
+            };
+          },
+          methods: {
+            sumar() {
+                this.counter++;
+            },
+            restar() {
+                this.counter--;
+            }
+          },
+          template: `
+          <form v-on:[evt].prevent="sumar"><button>Sumar</button></form>
+          <p>El contador esta en: {{ counter }}</p>
+          <form v-on:[evt].prevent="restar"><button>Restar</button></form>`
+        }).mount("#app");
+
+        console.log(vm);
+
+    </script>
+</body>
+</html>

@@ -9,16 +9,19 @@
   <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <div id="app">{{ text }}</div>
+    <div id="app"></div>
 
 
     <script>
         const vm = Vue.createApp({
           data() {
             return {
-              text: "Hola Vue"
+              attr: "src",
+              alt: "Imagen Iglesia",
+              img: "https://images.pexels.com/photos/14656105/pexels-photo-14656105.jpeg?auto=compress&cs=tinysrgb&w=300&lazy=load"
             };
-          }
+          },
+          template: `<img v-bind:[attr]="[img]">`
         }).mount("#app");
 
         console.log(vm);
